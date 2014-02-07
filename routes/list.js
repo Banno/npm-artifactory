@@ -47,7 +47,7 @@ module.exports.version = function(req, res){
             var proxyPath = 'http://' + config.host + ':' + config.port;
             body = JSON.parse(JSON.stringify(body).replace(new RegExp(url.format(config.npm), 'g'), proxyPath));
 
-            request.put({uri: versionPath, json: body}, function(){
+            request.put({uri: versionPath, body: body}, function(){
                 res.send(body);
             });
         });
